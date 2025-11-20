@@ -12,12 +12,17 @@ const HeroSection = () => {
       id="home"
       ref={ref}
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center w-full"
-      style={{ backgroundImage: `url(${heroBg})`, maxWidth: "100vw" }}
+      style={{
+        backgroundImage: `url(${heroBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
     >
       {/* Dark overlay */}
       <motion.div
         className="absolute inset-0 bg-black"
-        animate={ { opacity: 0.6 }}
+        animate={{ opacity: 0.6 }}
         transition={{ duration: 0.8 }}
       />
 
@@ -26,37 +31,29 @@ const HeroSection = () => {
         {/* Heading */}
         <motion.h1
           className="text-4xl md:text-6xl font-bold text-white mb-6"
-          animate={
-            isInView
-              ? { opacity: 1, y: 0 }
-              : { opacity: 0, y: 40 }
-          }
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6 }}
         >
           <Typewriter
-                words={["Transform Your Fitness Journey"]}
-                loop={0}
-                cursor
-                cursorStyle="|"
-                typeSpeed={120}
-                deleteSpeed={50}
-                delaySpeed={1500}
-              />          
+            words={["Transform Your Fitness Journey"]}
+            loop={0}
+            cursor
+            cursorStyle="|"
+            typeSpeed={120}
+            deleteSpeed={50}
+            delaySpeed={1500}
+          />
         </motion.h1>
 
         {/* Subtitle */}
         <motion.p
           className="text-xl md:text-2xl text-white mb-10 max-w-2xl mx-auto"
-          animate={
-            isInView
-              ? { opacity: 1, y: 0 }
-              : { opacity: 0, y: 40 }
-          }
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6, delay: 0.15 }}
         >
-          Empowering women to achieve their strongest, healthiest selves at GlowFit Gym
+          Empowering women to achieve their strongest, healthiest selves at
+          GlowFit Gym
         </motion.p>
-
       </div>
     </section>
   );
