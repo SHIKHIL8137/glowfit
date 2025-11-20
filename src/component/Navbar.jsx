@@ -1,38 +1,33 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "Services", href: "#services" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" },
   ];
 
-  // Function to handle smooth scrolling
   const handleScrollTo = (href) => {
-    setIsMenuOpen(false); // Close mobile menu if open
-    
-    // Remove the '#' from the href
+    setIsMenuOpen(false);
+
     const targetId = href.substring(1);
-    
-    // Find the target element
+
     const targetElement = document.getElementById(targetId);
-    
+
     if (targetElement) {
-      // Use scrollIntoView with smooth behavior
       targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+        behavior: "smooth",
+        block: "start",
       });
     } else {
-      // If element not found, scroll to top for home
-      if (targetId === 'home') {
+      if (targetId === "home") {
         window.scrollTo({
           top: 0,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }
     }
@@ -46,25 +41,22 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-
       <div className="container mx-auto px-4 md:px-20">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <motion.div
             className="flex-shrink-0"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <button
-              onClick={() => handleScrollTo('#home')}
+              onClick={() => handleScrollTo("#home")}
               className="text-white font-bold tracking-wide text-xl"
-              style={{ fontFamily: 'Arial, sans-serif' }}
+              style={{ fontFamily: "Arial, sans-serif" }}
             >
               GlowFit
             </button>
           </motion.div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="flex items-center space-x-8">
               {navLinks.map((link, index) => (
@@ -75,7 +67,13 @@ const Navbar = () => {
                   whileHover={{ y: -2 }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1, type: "spring", stiffness: 400, damping: 10 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: index * 0.1,
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 10,
+                  }}
                 >
                   {link.name}
                 </motion.button>
@@ -83,10 +81,9 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
           <div className="hidden md:block">
-            <motion.button 
-              onClick={() => handleScrollTo('#contact')}
+            <motion.button
+              onClick={() => handleScrollTo("#contact")}
               className="bg-[#C01818] hover:bg-[#8A0F0F] text-white font-bold py-2 px-6 rounded-full text-sm transition duration-300 ease-in-out"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -95,7 +92,6 @@ const Navbar = () => {
             </motion.button>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -103,28 +99,41 @@ const Navbar = () => {
               whileTap={{ scale: 0.9 }}
             >
               <svg
-                className={`${isMenuOpen ? 'hidden' : 'block'} h-6 w-6 transition-transform duration-300 ease-in-out`}
+                className={`${
+                  isMenuOpen ? "hidden" : "block"
+                } h-6 w-6 transition-transform duration-300 ease-in-out`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
               <svg
-                className={`${isMenuOpen ? 'block' : 'hidden'} h-6 w-6 transition-transform duration-300 ease-in-out`}
+                className={`${
+                  isMenuOpen ? "block" : "hidden"
+                } h-6 w-6 transition-transform duration-300 ease-in-out`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </motion.button>
           </div>
         </div>
       </div>
-      {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <motion.div
           className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm z-40 md:hidden"
@@ -135,26 +144,35 @@ const Navbar = () => {
           onClick={() => setIsMenuOpen(false)}
         />
       )}
-      
-      {/* Mobile Menu Slide Panel */}
+
       <motion.div
         className="fixed top-0 left-0 h-full w-full bg-black shadow-lg z-50 md:hidden"
         initial={{ x: "-100%" }}
         animate={{ x: isMenuOpen ? 0 : "-100%" }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        {/* Close Button */}
         <div className="flex justify-end p-4">
           <button
             onClick={() => setIsMenuOpen(false)}
             className="text-white hover:text-red-700 p-2"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
-        
+
         <div className="flex flex-col h-full pt-0">
           <div className="flex flex-col h-full pb-16">
             {navLinks.map((link, index) => (
@@ -162,7 +180,7 @@ const Navbar = () => {
                 key={link.name}
                 onClick={() => {
                   handleScrollTo(link.href);
-                  setIsMenuOpen(false); // Close menu when item is clicked
+                  setIsMenuOpen(false);
                 }}
                 className="text-white hover:text-orange-700 block px-3 py-4 text-center text-xl font-medium w-full max-w-md"
                 initial={{ opacity: 0, x: -20 }}
@@ -173,12 +191,11 @@ const Navbar = () => {
                 {link.name}
               </motion.button>
             ))}
-            
-            {/* Mobile CTA Button */}
+
             <div className="mt-auto px-4 pb-8">
-              <motion.button 
+              <motion.button
                 onClick={() => {
-                  handleScrollTo('#contact');
+                  handleScrollTo("#contact");
                   setIsMenuOpen(false);
                 }}
                 className="w-full bg-[#C01818] hover:bg-[#8A0F0F] text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out"

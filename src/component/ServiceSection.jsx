@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// Import images for each service
 import yogaImg from "../assets/cards/yoga.jpg";
 import zumbaImg from "../assets/cards/zumba.jpg";
 import crossfitImg from "../assets/cards/crossfit.jpg";
@@ -82,7 +81,8 @@ export const ServiceSection = () => {
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Discover our range of specialized fitness programs designed for everyone
+          Discover our range of specialized fitness programs designed for
+          everyone
         </motion.p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

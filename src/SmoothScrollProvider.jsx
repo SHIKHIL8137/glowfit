@@ -1,33 +1,25 @@
-import { useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const SmoothScrollProvider = ({ children }) => {
   useEffect(() => {
-    // Configure ScrollTrigger
     ScrollTrigger.config({
-      autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+      autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
     });
 
-    // Set up smooth scrolling
     const setupSmoothScrolling = () => {
-      // Kill any existing ScrollTrigger instances
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      
-      // Select the root element
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
       const root = document.documentElement;
-      
-      // Set CSS variables for smooth scrolling
-      root.style.setProperty('--scroll-behavior', 'smooth');
-      
-      // Add smooth scrolling class to body
-      document.body.classList.add('smooth-scroll');
-      
-      // Add CSS for smooth scrolling
-      const style = document.createElement('style');
+
+      root.style.setProperty("--scroll-behavior", "smooth");
+
+      document.body.classList.add("smooth-scroll");
+
+      const style = document.createElement("style");
       style.textContent = `
         .smooth-scroll {
           scroll-behavior: smooth;
@@ -40,31 +32,24 @@ const SmoothScrollProvider = ({ children }) => {
         }
       `;
       document.head.appendChild(style);
-      
-      // Cleanup function
+
       return () => {
-        // Kill all ScrollTrigger instances
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        
-        // Remove smooth scroll class
-        document.body.classList.remove('smooth-scroll');
-        
-        // Remove the style element
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
+        document.body.classList.remove("smooth-scroll");
+
         if (style.parentNode) {
           style.parentNode.removeChild(style);
         }
       };
     };
-    
-    // Initialize smooth scrolling
+
     const cleanup = setupSmoothScrolling();
-    
-    // Refresh ScrollTrigger on load
-    window.addEventListener('load', () => {
+
+    window.addEventListener("load", () => {
       ScrollTrigger.refresh();
     });
-    
-    // Return cleanup function
+
     return cleanup;
   }, []);
 
