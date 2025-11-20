@@ -71,7 +71,7 @@ const Navbar = () => {
                 <motion.button
                   key={link.name}
                   onClick={() => handleScrollTo(link.href)}
-                  className="text-white hover:text-gray-300 px-1 py-2 text-sm font-medium border-b-2 border-transparent hover:border-white"
+                  className="text-white hover:text-orange-700 px-1 py-2 text-sm font-medium border-b-2 border-transparent hover:border-orange-700 transition-colors duration-300"
                   whileHover={{ y: -2 }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ const Navbar = () => {
         <div className="flex justify-end p-4">
           <button
             onClick={() => setIsMenuOpen(false)}
-            className="text-white hover:text-[#FFD36E] p-2"
+            className="text-white hover:text-red-700 p-2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -152,7 +152,7 @@ const Navbar = () => {
                   handleScrollTo(link.href);
                   setIsMenuOpen(false); // Close menu when item is clicked
                 }}
-                className="text-white hover:text-[#FFD36E] block px-3 py-4 text-center text-xl font-medium w-full max-w-md"
+                className="text-white hover:text-orange-700 block px-3 py-4 text-center text-xl font-medium w-full max-w-md"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
