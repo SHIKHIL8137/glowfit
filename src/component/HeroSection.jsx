@@ -35,7 +35,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
         >
           <Typewriter
-            words={["Transform Your Fitness Journey"]}
+            words={["Spark Your Fitness Journey"]}
             loop={0}
             cursor
             cursorStyle="|"
@@ -51,8 +51,7 @@ const HeroSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6, delay: 0.15 }}
         >
-          Empowering women to achieve their strongest, healthiest selves at
-          GlowFit Gym
+          Empowering you to achieve your strongest, healthiest self at GlowFit Gym
         </motion.p>
       </div>
     </section>

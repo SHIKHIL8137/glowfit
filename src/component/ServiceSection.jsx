@@ -67,15 +67,14 @@ export const ServiceSection = () => {
     <section id="services" className="min-h-screen bg-black py-16 px-4">
       <div className="container mx-auto max-w-6xl">
         <motion.h2
-          className="text-4xl md:text-5xl font-extrabold text-center mb-6 tracking-wide"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-white"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-white">Our</span>
-          <span className="text-[#C01818] ml-2">Services</span>
+          Our Services
         </motion.h2>
-
         <motion.p
           className="text-gray-300 text-center mb-12 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: -20 }}
@@ -83,7 +82,7 @@ export const ServiceSection = () => {
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Discover our range of specialized fitness programs designed for women
+          Discover our range of specialized fitness programs designed for everyone
         </motion.p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -109,7 +108,7 @@ const ServiceCard = ({ service, index }) => {
           "0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2)",
         transition: { duration: 0.3 },
       }}
-      className="bg-[#111110] rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 border-t-4 border-[#C01818]"
+      className="bg-[#2C1A0D] rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 border-t-4 border-[#C01818] hover:border-[#FFD36E]"
     >
       <div className="h-48 overflow-hidden">
         <img

@@ -4,6 +4,8 @@ import HeroSection from "./component/HeroSection";
 import SmoothScrollProvider from "./SmoothScrollProvider";
 import { ServiceSection } from "./component/ServiceSection";
 import About from "./component/About";
+import Contact from "./component/Contact";
+import Footer from "./component/Footer";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <HeroSection />
       <ServiceSection />    
       <About />
+      <Contact />
+      <Footer />
     </SmoothScrollProvider>
   );
 }

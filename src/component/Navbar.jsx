@@ -83,6 +83,18 @@ const Navbar = () => {
             </div>
           </div>
 
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <motion.button 
+              onClick={() => handleScrollTo('#contact')}
+              className="bg-[#C01818] hover:bg-[#8A0F0F] text-white font-bold py-2 px-6 rounded-full text-sm transition duration-300 ease-in-out"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Join Now
+            </motion.button>
+          </div>
+
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <motion.button
@@ -161,6 +173,21 @@ const Navbar = () => {
                 {link.name}
               </motion.button>
             ))}
+            
+            {/* Mobile CTA Button */}
+            <div className="mt-auto px-4 pb-8">
+              <motion.button 
+                onClick={() => {
+                  handleScrollTo('#contact');
+                  setIsMenuOpen(false);
+                }}
+                className="w-full bg-[#C01818] hover:bg-[#8A0F0F] text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Join Now
+              </motion.button>
+            </div>
           </div>
         </div>
       </motion.div>
