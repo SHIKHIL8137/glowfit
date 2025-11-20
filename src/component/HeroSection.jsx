@@ -57,32 +57,6 @@ const HeroSection = () => {
           Empowering women to achieve their strongest, healthiest selves at GlowFit Gym
         </motion.p>
 
-        {/* Buttons */}
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-          animate={
-            isInView
-              ? { opacity: 1, y: 0 }
-              : { opacity: 0, y: 40 }
-          }
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <motion.button
-            className="bg-[#C01818] hover:bg-[#8A0F0F] text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Join Now
-          </motion.button>
-
-          <motion.button
-            className="bg-transparent border-2 border-white hover:bg-white hover:text-black text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Learn More
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

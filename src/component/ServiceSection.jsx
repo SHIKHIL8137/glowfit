@@ -1,73 +1,82 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 // Import images for each service
-import yogaImg from '../assets/cards/yoga.jpg';
-import zumbaImg from '../assets/cards/zumba.jpg';
-import crossfitImg from '../assets/cards/crossfit.jpg';
-import aerobicsImg from '../assets/cards/aerobics.jpg';
-import functionalStrengtheningImg from '../assets/cards/functionalStrengthening.jpg';
-import physiqueTransformationImg from '../assets/cards/physiqurTransformation.jpg';
-import cardioImg from '../assets/cards/cardio.jpg';
-import weightTrainingImg from '../assets/cards/weightTraining.jpg';
+import yogaImg from "../assets/cards/yoga.jpg";
+import zumbaImg from "../assets/cards/zumba.jpg";
+import crossfitImg from "../assets/cards/crossfit.jpg";
+import aerobicsImg from "../assets/cards/aerobics.jpg";
+import functionalStrengtheningImg from "../assets/cards/functionalStrengthening.jpg";
+import physiqueTransformationImg from "../assets/cards/physiqurTransformation.jpg";
+import cardioImg from "../assets/cards/cardio.jpg";
+import weightTrainingImg from "../assets/cards/weightTraining.jpg";
 
 export const ServiceSection = () => {
   const services = [
-    { 
-      name: 'Yoga', 
-      description: 'Improve flexibility, balance, and mental well-being through guided yoga sessions.',
-      image: yogaImg
+    {
+      name: "Yoga",
+      description:
+        "Improve flexibility, balance, and mental well-being through guided yoga sessions.",
+      image: yogaImg,
     },
-    { 
-      name: 'Zumba', 
-      description: 'High-energy dance workouts that combine Latin music with easy-to-follow moves.',
-      image: zumbaImg
+    {
+      name: "Zumba",
+      description:
+        "High-energy dance workouts that combine Latin music with easy-to-follow moves.",
+      image: zumbaImg,
     },
-    { 
-      name: 'CrossFit', 
-      description: 'High-intensity functional training to build strength, endurance, and agility.',
-      image: crossfitImg
+    {
+      name: "CrossFit",
+      description:
+        "High-intensity functional training to build strength, endurance, and agility.",
+      image: crossfitImg,
     },
-    { 
-      name: 'Aerobics', 
-      description: 'Cardiovascular exercises to boost heart health and burn calories.',
-      image: aerobicsImg
+    {
+      name: "Aerobics",
+      description:
+        "Cardiovascular exercises to boost heart health and burn calories.",
+      image: aerobicsImg,
     },
-    { 
-      name: 'Functional Strengthening', 
-      description: 'Targeted exercises to improve everyday movement and prevent injuries.',
-      image: functionalStrengtheningImg
+    {
+      name: "Functional Strengthening",
+      description:
+        "Targeted exercises to improve everyday movement and prevent injuries.",
+      image: functionalStrengtheningImg,
     },
-    { 
-      name: 'Physique Transformation', 
-      description: 'Personalized programs to reshape your body and achieve your fitness goals.',
-      image: physiqueTransformationImg
+    {
+      name: "Physique Transformation",
+      description:
+        "Personalized programs to reshape your body and achieve your fitness goals.",
+      image: physiqueTransformationImg,
     },
-    { 
-      name: 'Cardio', 
-      description: 'Effective cardiovascular training to improve stamina and overall fitness.',
-      image: cardioImg
+    {
+      name: "Cardio",
+      description:
+        "Effective cardiovascular training to improve stamina and overall fitness.",
+      image: cardioImg,
     },
-    { 
-      name: 'Weight Training', 
-      description: 'Strength building exercises using free weights and machines.',
-      image: weightTrainingImg
+    {
+      name: "Weight Training",
+      description:
+        "Strength building exercises using free weights and machines.",
+      image: weightTrainingImg,
     },
   ];
 
   return (
     <section id="services" className="min-h-screen bg-black py-16 px-4">
       <div className="container mx-auto max-w-6xl">
-        <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-center mb-4 text-white"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
+        <motion.h2
+          className="text-4xl md:text-5xl font-extrabold text-center mb-6 tracking-wide"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Our Services
+          <span className="text-white">Our</span>
+          <span className="text-[#C01818] ml-2">Services</span>
         </motion.h2>
-        <motion.p 
+
+        <motion.p
           className="text-gray-300 text-center mb-12 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,7 +85,7 @@ export const ServiceSection = () => {
         >
           Discover our range of specialized fitness programs designed for women
         </motion.p>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <ServiceCard key={index} service={service} index={index} />
@@ -94,17 +103,18 @@ const ServiceCard = ({ service, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ 
+      whileHover={{
         y: -10,
-        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2)',
-        transition: { duration: 0.3 }
+        boxShadow:
+          "0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.2)",
+        transition: { duration: 0.3 },
       }}
       className="bg-[#111110] rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 border-t-4 border-[#C01818]"
     >
       <div className="h-48 overflow-hidden">
-        <img 
-          src={service.image} 
-          alt={service.name} 
+        <img
+          src={service.image}
+          alt={service.name}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
       </div>
